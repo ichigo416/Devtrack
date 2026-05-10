@@ -1,0 +1,23 @@
+services:
+  - type: web
+    name: devtrack-api
+    env: node
+    buildCommand: npm install
+    startCommand: node src/app.js
+    envVars:
+      - key: MONGO_URI
+        value: mongodb+srv://pradyumna:Pradyumna123@devtrack.dimuntc.mongodb.net/devtrack?retryWrites=true&w=majority&appName=Devtrack
+      - key: SESSION_SECRET
+        value: devtrack_super_secret_key_2024
+      - key: GITHUB_CLIENT_ID
+        value: Ov23li5GlEtETXWC4LpW
+      - key: GITHUB_CLIENT_SECRET
+        value: 665174b33f19b7a802a011e7b0aa57ad02ad95b3
+      - key: NODE_ENV
+        value: production
+      - key: CLIENT_URL
+        value: https://YOUR_NETLIFY_URL.netlify.app
+      - key: SERVER_URL
+        value: https://YOUR_RENDER_URL.onrender.com
+      - key: PORT
+        value: 5000 
