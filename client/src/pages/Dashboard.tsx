@@ -158,21 +158,24 @@ export default function Dashboard() {
     <div className={`app-root ${dark ? "dark" : "light"}`}>
       {/* Header */}
       <header className="header">
-        <h1>DevTrack 🚀</h1>
-        <div className="header-right">
-          {user && (
-            <div className="user-info">
-              <img src={user.avatarUrl} alt={user.username} className="avatar" />
-              <span className="username">@{user.username}</span>
-            </div>
-          )}
-          <button className="theme-toggle" onClick={() => setDark(d => !d)}>
-            {dark ? "☀️" : "🌙"}
-          </button>
-          <button className="share-btn" onClick={() => setShowShare(true)}>📤 Share</button>
-          <button className="logout-btn" onClick={handleLogout}>Logout</button>
-        </div>
-      </header>
+  <h1>DevTrack 🚀</h1>
+  <div className="header-right">
+    {user && (
+      <div className="user-info">
+        <img src={user.avatarUrl} alt={user.username} className="avatar" />
+        <span className="username">@{user.username}</span>
+      </div>
+    )}
+    <button className="theme-toggle" onClick={() => setDark(d => !d)}>
+      {dark ? "☀️" : "🌙"}
+    </button>
+    <button className="squad-nav-btn" onClick={() => navigate("/squad")}>
+      👥 Squads
+    </button>
+    <button className="share-btn" onClick={() => setShowShare(true)}>📤 Share</button>
+    <button className="logout-btn" onClick={handleLogout}>Logout</button>
+  </div>
+</header>
 
       <main className="main">
         {/* Burnout */}
