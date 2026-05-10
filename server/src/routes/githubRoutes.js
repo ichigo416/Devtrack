@@ -1,9 +1,15 @@
 const express = require("express");
 const router = express.Router();
-const { getUserRepos } = require("../controllers/githubController");
-const { getAnalytics } = require("../controllers/githubController");
+const { getUserRepos, getAnalytics, createGoal, getGoals } = require("../controllers/githubController");
 
-router.get("/analytics/:username", getAnalytics);
-router.get("/:username", getUserRepos);
+const requireAuth = (req, res, next) => {
+  if (req.isAuthenticated()) return next();
+  res.status(401).json({ error: "Login required" });
+};
+
+router.get("/analytics/:username", requireAuth, getAnalytics);
+router.get("/goals/:username", requireAuth, getGoals);
+router.post("/goals/:username", requireAuth, createGoal);
+router.get("/:username", requireAuth, getUserRepos);
 
 module.exports = router;
